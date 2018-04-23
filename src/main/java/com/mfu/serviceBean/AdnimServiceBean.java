@@ -7,11 +7,12 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Service;
+
 import com.mfu.entity.Admin;
 import com.mfu.service.AdminService;
 
-@Stateless
-@Remote(AdminService.class)
+@Service
 public class AdnimServiceBean implements AdminService {
 	@PersistenceContext(unitName = "HostelDatabase")
 	EntityManager em;
