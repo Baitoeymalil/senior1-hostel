@@ -1,4 +1,4 @@
-package hostel.com;
+package com.mfu;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
