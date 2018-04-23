@@ -6,13 +6,17 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mfu.entity.Spa;
 import com.mfu.service.SpaService;
 
 
 @Service
+@Repository
+@Transactional
 public class SpaServiceBean implements SpaService{
 	@PersistenceContext
 	EntityManager em;

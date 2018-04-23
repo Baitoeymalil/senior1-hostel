@@ -5,13 +5,17 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mfu.entity.Rooms;
 import com.mfu.service.RoomService;
 
 
 @Service
+@Repository
+@Transactional
 public class RoomServiceBean implements RoomService{
 	@PersistenceContext
 	EntityManager em;

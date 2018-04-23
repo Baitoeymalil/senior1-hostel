@@ -5,7 +5,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mfu.entity.Guest;
 import com.mfu.service.GuestService;
@@ -13,6 +15,8 @@ import com.mfu.service.GuestService;
 
 
 @Service
+@Repository
+@Transactional
 public class GuestServiceBean implements GuestService{
 	@PersistenceContext
 	EntityManager em;

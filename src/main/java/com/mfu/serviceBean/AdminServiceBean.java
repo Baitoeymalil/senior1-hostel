@@ -6,13 +6,17 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mfu.entity.Admin;
 import com.mfu.service.AdminService;
 
 
 @Service
+@Repository
+@Transactional
 public class AdminServiceBean implements AdminService {
 	@PersistenceContext
 	EntityManager em;
