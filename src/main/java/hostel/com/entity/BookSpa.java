@@ -29,8 +29,8 @@ public class BookSpa implements Serializable {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "bookSpaId")
 	private long bookSpaId;
-	@Column(name = "spaBookindDate")
-	private Date spaBookindDate;
+	@Column(name = "spaBookingDate")
+	private Date spaBookingDate;
 	@Column(name = "personPerBookingSpa")
 	private String personPerBookingSpa;
 

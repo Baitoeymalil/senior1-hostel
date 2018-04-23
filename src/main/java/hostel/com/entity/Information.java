@@ -2,12 +2,18 @@ package hostel.com.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
+@Table(name = "Information")
 public class Information implements Serializable {
 	/**
 	 * 
@@ -15,59 +21,17 @@ public class Information implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "informationId")
 	private long informationId;
+	@Column(name = "hostelAddress")
 	private String hostelAddress;
+	@Column(name = "hostelPhone")
 	private String hostelPhone;
+	@Column(name = "hostelPic")
 	private String hostelPic;
+	@Column(name = "hostelEmail")
 	private String hostelEmail;
+	@Column(name = "hostelWebside")
 	private String hostelWebside;
-
-	public long getInformationId() {
-		return informationId;
-	}
-
-	public void setInformationId(long informationId) {
-		this.informationId = informationId;
-	}
-
-	public String getHostelAddress() {
-		return hostelAddress;
-	}
-
-	public void setHostelAddress(String hostelAddress) {
-		this.hostelAddress = hostelAddress;
-	}
-
-	public String getHostelPhone() {
-		return hostelPhone;
-	}
-
-	public void setHostelPhone(String hostelPhone) {
-		this.hostelPhone = hostelPhone;
-	}
-
-	public String getHostelPic() {
-		return hostelPic;
-	}
-
-	public void setHostelPic(String hostelPic) {
-		this.hostelPic = hostelPic;
-	}
-
-	public String getHostelEmail() {
-		return hostelEmail;
-	}
-
-	public void setHostelEmail(String hostelEmail) {
-		this.hostelEmail = hostelEmail;
-	}
-
-	public String getHostelWebside() {
-		return hostelWebside;
-	}
-
-	public void setHostelWebside(String hostelWebside) {
-		this.hostelWebside = hostelWebside;
-	}
 
 }

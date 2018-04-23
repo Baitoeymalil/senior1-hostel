@@ -1,92 +1,42 @@
 package hostel.com.entity;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
+import java.sql.Date;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
+import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import lombok.Data;
+
+@Data
 @Entity
-public class Promotion implements Serializable{
+@Table(name = "Promotion")
+public class Promotion implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "promotionId")
 	private long promotionId;
-	private String startDate;
-	private String endDate;
+	@Column(name = "startDate")
+	private Date startDate;
+	@Column(name = "endDate")
+	private Date endDate;
+	@Column(name = "promotionCode")
 	private String promotionCode;
+	@Column(name = "discountRate")
 	private String discountRate;
+	@Column(name = "promotionPic")
 	private String promotionPic;
-
-	public long getPromotionId() {
-		return promotionId;
-	}
-
-	public void setPromotionId(long promotionId) {
-		this.promotionId = promotionId;
-	}
-
-	
-	public String getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
-
-	public String getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
-	}
-
-	public String getPromotionCode() {
-		return promotionCode;
-	}
-
-	public void setPromotionCode(String promotionCode) {
-		this.promotionCode = promotionCode;
-	}
-
-	public String getDiscountRate() {
-		return discountRate;
-	}
-
-	public void setDiscountRate(String discountRate) {
-		this.discountRate = discountRate;
-	}
-
-	public String getPromotionPic() {
-		return promotionPic;
-	}
-
-	public void setPromotionPic(String promotionPic) {
-		this.promotionPic = promotionPic;
-	}
-
-
-	@OneToMany(mappedBy="promotion", cascade = { CascadeType.ALL})
-	private List<Reservation> reservation;
-
-	public List<Reservation> getReservation() {
-		return reservation;
-	}
-
-	public void setReservation(List<Reservation> reservation) {
-		this.reservation = reservation;
-	}
-	
 
 }
