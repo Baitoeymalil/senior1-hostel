@@ -2,46 +2,53 @@ package com.mfu.serviceBean;
 
 import java.util.List;
 
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Service;
 
 import com.mfu.entity.Promotion;
 import com.mfu.service.PromotionService;
 
-@Stateless
-@Remote(PromotionService.class)
+@Service
 public class PromotionServiceBean implements PromotionService {
-	@PersistenceContext(unitName = "HostelDatabase")
+	@PersistenceContext
 	EntityManager em;
+
+	@Override
 	public void insert(Promotion promo) {
-		this.em.persist(promo);
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public Promotion findPromotionId(long promotionId) {
-		return this.em.find(Promotion.class, promotionId);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public void update(Promotion promo) {
-		this.em.merge(promo);
-
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void delete(long promotionId) {
-		Promotion promo = findPromotionId(promotionId);
-		if (promo != null) {
-			em.remove(promo);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public List<Promotion> getAllPromotion() {
-		return em.createQuery("SELECT x FROM Promotion x").getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public List<Promotion> findPromotionByPromoCode(String promoCode) {
-		return em.createQuery("SELECT em FROM Promotion em WHERE em.promotionCode LIKE :pc ").setParameter("pc", promoCode + "%")
-				.getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

@@ -2,8 +2,7 @@ package com.mfu.serviceBean;
 
 import java.util.List;
 
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -12,44 +11,53 @@ import org.springframework.stereotype.Service;
 import com.mfu.entity.Admin;
 import com.mfu.service.AdminService;
 
+
 @Service
 public class AdminServiceBean implements AdminService {
-	@PersistenceContext(unitName = "HostelDatabase")
+	@PersistenceContext
 	EntityManager em;
 
+	@Override
 	public void insert(Admin admin) {
-		this.em.persist(admin);
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public Admin findAdminId(long adminId) {
-		return this.em.find(Admin.class, adminId);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public void update(Admin admin) {
-		this.em.merge(admin);
-
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void delete(long adminId) {
-		Admin admin = findAdminId(adminId);
-		if (admin != null) {
-			em.remove(admin);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public List<Admin> getAllAdmin() {
-		return em.createQuery("SELECT x FROM Admin x").getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public List<Admin> findAdminUsername(String adminUsername) {
-		return em.createQuery("SELECT em FROM Admin em WHERE em.adminUsername LIKE :uname ")
-				.setParameter("uname", adminUsername + "%").getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public Admin findAdminUsernameAndAdminPassword(String adminUsername, String adminPassword) {
-		return (Admin) this.em
-				.createQuery("SELECT em FROM Admin em WHERE em.adminUsername  =:uname AND em.adminPassword =:pass ")
-				.setParameter("uname", adminUsername).setParameter("pass", adminPassword).getSingleResult();
+	@Override
+	public Admin findAdminUsernameAndA2dminPassword(String adminUsername, String adminPassword) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	
 }

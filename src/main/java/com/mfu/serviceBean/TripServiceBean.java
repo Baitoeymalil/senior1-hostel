@@ -2,46 +2,55 @@ package com.mfu.serviceBean;
 
 import java.util.List;
 
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Service;
+
 import com.mfu.entity.Trip;
 import com.mfu.service.TripService;
-@Stateless
-@Remote(TripService.class)
+
+
+@Service
 public class TripServiceBean implements TripService {
-	@PersistenceContext(unitName = "HostelDatabase")
+	@PersistenceContext
 	EntityManager em;
 
+	@Override
 	public void insert(Trip trip) {
-		this.em.persist(trip);
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public Trip findTripId(long tripId) {
-		return this.em.find(Trip.class, tripId);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public void update(Trip trip) {
-		this.em.merge(trip);
-
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void delete(long tripId) {
-		Trip trip = findTripId(tripId);
-		if (trip != null) {
-			em.remove(trip);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public List<Trip> getAllTrip() {
-		return em.createQuery("SELECT x FROM Trip x").getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public List<Trip> findTripName(String tripName) {
-		return em.createQuery("SELECT em FROM Trip em WHERE em.tripName LIKE :sn ")
-				.setParameter("sn", tripName + "%").getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	
 }

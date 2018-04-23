@@ -2,48 +2,50 @@ package com.mfu.serviceBean;
 
 import java.util.List;
 
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Service;
 
 import com.mfu.entity.Product;
 import com.mfu.service.ProductService;
 
-@Stateless
-@Remote(ProductService.class)
+
+
+@Service
 public class ProductServiceBean implements ProductService {
-	@PersistenceContext(unitName = "HostelDatabase")
+	@PersistenceContext
 	EntityManager em;
+
+	@Override
 	public void insert(Product product) {
-		this.em.persist(product);
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public Product findProductById(long productId) {
-		return this.em.find(Product.class, productId);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public void update(Product product) {
-		this.em.merge(product);
-
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void delete(long productId) {
-		Product Product = findProductById(productId);
-		if (Product != null) {
-			em.remove(Product);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public List<Product> getAllProduct() {
-		return em.createQuery("SELECT x FROM Product x").getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
-
-	// public List<Product> findProductByProductType(String ProductType) {
-	// return em.createQuery("SELECT em FROM Product em WHERE em.ProductType LIKE
-	// :fn
-	// ").setParameter("fn", ProductType + "%")
-	// .getResultList();
-	// }
-
+	
 }

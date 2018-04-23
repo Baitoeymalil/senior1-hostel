@@ -2,46 +2,56 @@ package com.mfu.serviceBean;
 
 import java.util.List;
 
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Service;
+
 import com.mfu.entity.Spa;
 import com.mfu.service.SpaService;
-@Stateless
-@Remote(SpaService.class)
+
+
+@Service
 public class SpaServiceBean implements SpaService{
-	@PersistenceContext(unitName = "HostelDatabase")
+	@PersistenceContext
 	EntityManager em;
 
+	@Override
 	public void insert(Spa spa) {
-		this.em.persist(spa);
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public Spa findSpaId(long spaId) {
-		return this.em.find(Spa.class, spaId);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public void update(Spa spa) {
-		this.em.merge(spa);
-
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void delete(long spaId) {
-		Spa spa = findSpaId(spaId);
-		if (spa != null) {
-			em.remove(spa);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public List<Spa> getAllSpa() {
-		return em.createQuery("SELECT x FROM Spa x").getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public List<Spa> findSpaNameame(String spaName) {
-		return em.createQuery("SELECT em FROM Spa em WHERE em.spaName LIKE :sn ")
-				.setParameter("sn", spaName + "%").getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	
 }

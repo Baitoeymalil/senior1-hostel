@@ -2,42 +2,50 @@ package com.mfu.serviceBean;
 
 import java.util.List;
 
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Service;
 
 import com.mfu.entity.BookSpa;
 import com.mfu.service.BookSpaService;
 
-@Stateless
-@Remote(BookSpaService.class)
+
+@Service
 public class BookSpaServiceBean implements BookSpaService {
-	@PersistenceContext(unitName = "HostelDatabase")
+	@PersistenceContext
 	EntityManager em;
 
+	@Override
 	public void insert(BookSpa bookSpa) {
-		this.em.persist(bookSpa);
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public BookSpa findBookSpaById(long bookSpaId) {
-		return this.em.find(BookSpa.class, bookSpaId);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public void update(BookSpa bookSpa) {
-		this.em.merge(bookSpa);
-
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void delete(long bookSpaId) {
-		BookSpa bookSpa = findBookSpaById(bookSpaId);
-		if (bookSpa != null) {
-			em.remove(bookSpa);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public List<BookSpa> getAllBookSpa() {
-		return em.createQuery("SELECT x FROM BookSpa x").getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	
 }

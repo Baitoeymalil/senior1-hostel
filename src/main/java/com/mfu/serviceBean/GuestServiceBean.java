@@ -2,53 +2,56 @@ package com.mfu.serviceBean;
 
 import java.util.List;
 
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Service;
 
 import com.mfu.entity.Guest;
 import com.mfu.service.GuestService;
 
-@Stateless
-@Remote(GuestService.class)
+
+
+@Service
 public class GuestServiceBean implements GuestService{
-	@PersistenceContext(unitName = "HostelDatabase")
+	@PersistenceContext
 	EntityManager em;
 
+	@Override
 	public void insert(Guest guest) {
-		this.em.persist(guest);
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public Guest findGuestId(long guestId) {
-		return this.em.find(Guest.class, guestId);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public void update(Guest guest) {
-		this.em.merge(guest);
-
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void delete(long guestId) {
-		Guest guest = findGuestId(guestId);
-		if (guest != null) {
-			em.remove(guest);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public List<Guest> getAllGuest() {
-		return em.createQuery("SELECT x FROM Guest x").getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public List<Guest> findGuestFirstname(String GuestFirstname) {
-		return em.createQuery("SELECT em FROM Guest em WHERE em.GuestFirstname LIKE :fn ")
-				.setParameter("fn", GuestFirstname + "%").getResultList();
+	@Override
+	public List<Guest> findGuestFirstname(String guestFirstname) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-//	public Guest findGuestEmailAndGuestPassword(String GuestEmail, String GuestPassword) {
-//		return (Guest) this.em
-//				.createQuery("SELECT em FROM Guest em WHERE em.GuestEmail  =:fn AND em.GuestPassword =:ln ")
-//				.setParameter("fn", GuestEmail).setParameter("ln", GuestPassword).getSingleResult();
-//	}
-
+	
 }

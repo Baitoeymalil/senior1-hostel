@@ -2,50 +2,55 @@ package com.mfu.serviceBean;
 
 import java.util.List;
 
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Service;
+
 import com.mfu.entity.BookTrip;
 import com.mfu.service.BookTripService;
-@Stateless
-@Remote(BookTripService.class)
+
+
+@Service
 public class BookTripServiceBean implements BookTripService{
-	@PersistenceContext(unitName = "HostelDatabase")
+	@PersistenceContext
 	EntityManager em;
 
+	@Override
 	public void insert(BookTrip bookTrip) {
-		this.em.persist(bookTrip);
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public BookTrip findBookTripById(long bookTripId) {
-		return this.em.find(BookTrip.class, bookTripId);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public void update(BookTrip bookTrip) {
-		this.em.merge(bookTrip);
-
-	}
-
-	public void delete(long bookTripId) {
-		BookTrip bookTrip = findBookTripById(bookTripId);
-		if (bookTrip != null) {
-			em.remove(bookTrip);
-		}
-	}
-
-	public List<BookTrip> getAllBookTrip() {
-		return em.createQuery("SELECT x FROM BookTrip x").getResultList();
-	}
-
+	@Override
 	public BookTrip findBookTripByPromocode(String promotionCode) {
-		return this.em.find(BookTrip.class, promotionCode);
+		// TODO Auto-generated method stub
+		return null;
 	}
-//	public List<BookTrip> findBookTripByBookTripName(String
-//	 BookTripType) {
-//	 return em.createQuery("SELECT em FROM BookTrip em WHERE em.BookTripName LIKE :fn ").setParameter("fn", BookTripType + "%")
-//	 .getResultList();
-//	 }
+
+	@Override
+	public void update(BookTrip bookTrip) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(long bookTripId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<BookTrip> getAllBookTrip() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

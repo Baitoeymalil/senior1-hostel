@@ -2,42 +2,51 @@ package com.mfu.serviceBean;
 
 import java.util.List;
 
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Service;
 
 import com.mfu.entity.Information;
 import com.mfu.service.InformationService;
 
-@Stateless
-@Remote(InformationService.class)
+
+
+@Service
 public class InformationServiceBean implements InformationService {
-	@PersistenceContext(unitName = "HostelDatabase")
+	@PersistenceContext
 	EntityManager em;
 
+	@Override
 	public void insert(Information information) {
-		this.em.persist(information);
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public Information findInformationById(long informationId) {
-		return this.em.find(Information.class, informationId);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public void update(Information information) {
-		this.em.merge(information);
-
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void delete(long informationId) {
-		Information information = findInformationById(informationId);
-		if (information != null) {
-			em.remove(information);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public List<Information> getAllinformation() {
-		return em.createQuery("SELECT x FROM Information x").getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	
 }

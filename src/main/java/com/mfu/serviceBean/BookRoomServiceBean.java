@@ -2,49 +2,49 @@ package com.mfu.serviceBean;
 
 import java.util.List;
 
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Service;
 
 import com.mfu.entity.BookRoom;
 import com.mfu.service.BookRoomService;
 
-@Stateless
-@Remote(BookRoomService.class)
+
+@Service
 public class BookRoomServiceBean implements BookRoomService {
-	@PersistenceContext(unitName = "HostelDatabase")
+	@PersistenceContext
 	EntityManager em;
 
+	@Override
 	public void insert(BookRoom bookRoom) {
-		this.em.persist(bookRoom);
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public BookRoom findbookRoomById(long bookRoomId) {
-		return this.em.find(BookRoom.class, bookRoomId);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public void update(BookRoom bookRoom) {
-		this.em.merge(bookRoom);
-
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void delete(long bookRoomId) {
-		BookRoom bookRoom = findbookRoomById(bookRoomId);
-		if (bookRoom != null) {
-			em.remove(bookRoom);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public List<BookRoom> getAllbookRoom() {
-		return em.createQuery("SELECT x FROM BookRoom x").getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	// public List<BookRoom> findbookRoomBybookRoomType(String bookRoomType) {
-	// return em.createQuery("SELECT em FROM bookRoom em WHERE em.bookRoomType LIKE
-	// :fn
-	// ").setParameter("fn", bookRoomType + "%")
-	// .getResultList();
-	// }
-
+	
 }
