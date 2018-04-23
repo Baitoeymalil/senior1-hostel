@@ -2,7 +2,7 @@ package com.mfu.service;
 
 import java.util.List;
 
-import hostel.com.entity.Admin;
+import com.mfu.entity.Admin;
 
 
 
